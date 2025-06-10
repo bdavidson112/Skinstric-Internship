@@ -1,38 +1,118 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, html {
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'Roboto', sans-serif;
   min-height: 100vh;
+}
+
+
+/* Header */
+
+.header__container {
+  max-width: 1920px;
+  max-height: 64px;
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0px;
+  margin: 0 0 12px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  padding: 4px 0 0;
+  font-size: 14px;
+}
+
+.logo {
+  color: #1a1b1c;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  margin: 0 8px 0 0;
+  padding: 8px 16px;
+}
+
+.intro {
+  color: #1a1b1c83;
+  font-weight: 600;
+  opacity: 0.7;
+  margin: 0 6px;
+}
+
+.enter__code-btn {
+  color: #fcfcfc;
+  background-color: #1a1b1c;
+  margin: 0 16px;
+  padding: 8px 16px;
+  font-size: 10px;
+}
+
+.enter__code-btn:hover {
+  background-color: #1a1b1c83;
+  cursor: pointer;
+}
+
+/* Home */
+
+.title__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: auto;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.title__row {
+  width: 680px;
+  height: 240px;
+  font-weight: 300;
+  font-size: 60px;
+  letter-spacing: -0.7px;
+  text-align: center;
+  color: #1a1b1c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.diamond {
+  position: fixed;
+  top: 50%;
+  width: 602px;
+  height: 602px;
+  background: transparent;
+  border: 1px dotted #1a1b1c;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 1;
+  pointer-events: none; 
+}
+
+.diamond--left {
+  left: -301px; 
+}
+
+.diamond--right {
+  right: -301px; 
+}
+
+.main-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 64px); 
+  padding: 0 20px;
 }
