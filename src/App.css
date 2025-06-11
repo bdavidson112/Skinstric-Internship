@@ -86,6 +86,7 @@ body {
   letter-spacing: -0.7px;
   text-align: center;
   color: #1a1b1c;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
 .diamond {
@@ -98,14 +99,48 @@ body {
   transform: translateY(-50%) rotate(45deg);
   z-index: 1;
   pointer-events: none; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .diamond--left {
-  left: -301px; 
+  left: -301px;
 }
 
 .diamond--right {
-  right: -301px; 
+  right: -301px;
+}
+
+.diamond-btn {
+  transform: rotate(-45deg); 
+  background: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 16px 32px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn--left {
+  position: fixed;
+  top: 50%;
+  left: 80px; 
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.btn--right {
+  position: fixed;
+  top: 50%;
+  right: 80px; 
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.diamond-btn:hover {
+  background: #fff;
 }
 
 .main-center {
@@ -115,4 +150,100 @@ body {
   flex-direction: column;
   height: calc(100vh - 64px); 
   padding: 0 20px;
+}
+
+.left__container,
+.right__container {
+  transition: opacity 0.4s;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.move-right {
+  transform: translateX(300px); /* Adjust as needed */
+}
+
+.move-left {
+  transform: translateX(-300px); /* Adjust as needed */
+}
+
+
+/* Test Page */
+
+.sub__title {
+  Position: absolute;
+  width: 227px;
+  height: 24px;
+  top: 86px;
+  left: 32px;
+  color: #1a1b1c;
+  size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -2%;
+}
+
+.rombuses {
+  position: absolute;
+  width: 762px;
+  height: 762px;
+  top: 96px;
+  left: 579px;
+  border: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.type__text {
+  position: absolute;
+  width: 120px;
+  height: 24px;
+  top: 422px;
+  left: 905px;
+  opacity: 40%;
+  color: #1a1b1c;
+  size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.input__name {
+  position: absolute;
+  width: 420px;
+  height: 65px;
+  top: 448px;
+  left: 750px;
+  color: #1a1b1c;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: -7%;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #1a1b1c;
+  background: transparent;
+  outline: none;
+}
+
+.back__btn {
+  position: absolute;
+  cursor: pointer;
+  width: 97px;
+  height: 44px;
+  top: 880px;
+  left: 32px;
+  gap: 16px;
+}
+
+.proceed__btn {
+  position: absolute;
+  cursor: pointer;
+  width: 123px;
+  height: 44px;
+  top: 880px;
+  left: 1765px;
+  gap: 16px;
 }
