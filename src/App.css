@@ -236,6 +236,10 @@ body {
   top: 880px;
   left: 32px;
   gap: 16px;
+  border: none;
+  box-shadow: none;
+  background: none;
+  outline: none;
 }
 
 .proceed__btn {
@@ -246,4 +250,36 @@ body {
   top: 880px;
   left: 1765px;
   gap: 16px;
+  border: none;
+  box-shadow: none;
+  background: none;
+  outline: none;
+}
+
+/* Choice Page */
+
+.gallery__btn {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  background: none;
+  outline: none;
+  width: 488px;
+  height: 482px;
+  top: 240px;
+  left: 1193px;
+}
+
+.camera__btn {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  background: none;
+  outline: none;
+  width: 520px;
+  height: 482px;
+  top: 240px;
+  left: 239px;
 }
