@@ -3,25 +3,39 @@ import Header from '../Components/Header'
 import { ReactComponent as Rombuses } from "../SVG/rombuses.svg";
 import { ReactComponent as BackBtn } from "../Buttons/Back.svg";
 import { ReactComponent as Proceed } from "../Buttons/Proceed.svg";
+import { useNavigate } from "react-router";
 
 function Test() {
   const [inputValue, setInputValue] = useState("");
-  const [step, setStep] = useState(1); // 1: name, 2: city
-  const [userData, setUserData] = useState({ name: "", city: "" });
-  const [isComplete, setIsComplete] = useState(false);
+  const [step, setStep] = useState(1); // 1: name, 2: location, 3: done
+  const [userData, setUserData] = useState({ name: "", location: "" });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  // Validation: only letters, spaces, and at least 2 chars
+  const isValidString = (str) => /^[A-Za-z\s]{2,}$/.test(str.trim());
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      setError(""); // Clear previous error
       if (step === 1) {
-        setUserData((prev) => ({ ...prev, name: inputValue }));
+        if (!isValidString(inputValue)) {
+          setError("Please enter a valid name (letters and spaces only).");
+          return;
+        }
+        setUserData((prev) => ({ ...prev, name: inputValue.trim() }));
         setInputValue("");
         setStep(2);
       } else if (step === 2) {
-        const updatedData = { ...userData, city: inputValue };
+        if (!isValidString(inputValue)) {
+          setError("Please enter a valid location (letters and spaces only).");
+          return;
+        }
+        const updatedData = { ...userData, location: inputValue.trim() };
         setUserData(updatedData);
         setInputValue("");
-        setIsComplete(true);
-        console.log("Saved data:", updatedData);
+        setStep(3); // Show proceed button
+        console.log("Saved data:", updatedData); // <-- Log to console
       }
     }
   };
@@ -32,6 +46,7 @@ function Test() {
       <h2 className="sub__title">TO START ANALYSIS</h2>
       <Rombuses className='rombuses' />
       <p className="type__text">CLICK TO TYPE</p>
+      {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
       {step === 1 && (
         <input 
           type="text" 
@@ -40,20 +55,33 @@ function Test() {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
+          autoFocus
         />
       )}
       {step === 2 && (
         <input 
           type="text" 
           className='input__name' 
-          placeholder='your city name'
+          placeholder='your location'
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
+          autoFocus
         />
       )}
-      <BackBtn className='back__btn' href='/'/>
-      {isComplete && <Proceed className='proceed__btn' href='/' />}
+      <button className='back__btn' onClick={() => navigate("/")}>
+        <BackBtn />
+      </button>
+      {step === 3 && (
+        <button
+          className="proceed__btn"
+          onClick={() => navigate("/choice")}
+          style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
+        >
+          <Proceed />
+        </button>
+      )}
+      
     </div>
   )
 }
