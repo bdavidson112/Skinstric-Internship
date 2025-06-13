@@ -12,12 +12,11 @@ function Test() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Validation: only letters, spaces, and at least 2 chars
   const isValidString = (str) => /^[A-Za-z\s]{2,}$/.test(str.trim());
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      setError(""); // Clear previous error
+      setError(""); 
       if (step === 1) {
         if (!isValidString(inputValue)) {
           setError("Please enter a valid name (letters and spaces only).");
@@ -34,8 +33,8 @@ function Test() {
         const updatedData = { ...userData, location: inputValue.trim() };
         setUserData(updatedData);
         setInputValue("");
-        setStep(3); // Show proceed button
-        console.log("Saved data:", updatedData); // <-- Log to console
+        setStep(3); 
+        console.log("Saved data:", updatedData); 
       }
     }
   };
