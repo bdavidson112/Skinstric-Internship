@@ -283,3 +283,248 @@ body {
   top: 240px;
   left: 239px;
 }
+
+.loading__choice {
+  position: absolute;
+  width: 739px;
+  height: 739px;
+  top: 111px;
+  left: 590px;
+  color: #d9d9d9;
+}
+
+.loading__text {
+  position: absolute;
+  width: 227px;
+  height: 24px;
+  top: 468px;
+  left: 846px;
+  font-weight: 600;
+  size: 16px;
+  line-height: 24px;
+  letter-spacing: -2%;
+  text-align: center;
+}
+
+/* Analysis Page */
+
+.analysis__rombuses {
+  position: absolute;
+  width: 762px;
+  height: 762px;
+  top: 99px;
+  left: 579px;
+  border: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.analysis__choice--container {
+  position: absolute;
+  width: 313px;
+  height: 313px;
+  top: 323px;
+  left: 805px;
+  rotate: 45deg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px; 
+  padding: 2px; 
+}
+
+.analysis__btn {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.analysis__btn:hover {
+  background: #e0e0e0;
+}
+
+.analysis__btn--txt {
+  rotate: -45deg;
+  font-weight: 600;
+  size: 16px;
+  line-height: 24px;
+  letter-spacing: -2%;
+}
+
+.analysis__subheader {
+  position: absolute;
+  width: 227px;
+  height: 24px;
+  top: 86px;
+  left: 32px;
+  color: #1a1b1c;
+  size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -2%;
+}
+
+.analysis__para--CONTAINER {
+  position: absolute;
+  width: 336px;
+  height: 48px;
+  top: 118px;
+  left: 32px;
+  font-weight: 400;
+  size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.summary__btn {
+  position: absolute;
+  cursor: pointer;
+  width: 155px;
+  height: 44px;
+  top: 880px;
+  left: 1733px;
+  gap: 16px;
+  border: none;
+  box-shadow: none;
+  background: none;
+  outline: none;
+}
+
+/* Demographics Page */
+
+.demo__title {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 505px;
+  max-height: 64px;
+  top: 115px;
+  left: 29px;
+  font-weight: 400;
+  size: 72px;
+  line-height: 64px;
+  letter-spacing: -6%;
+}
+
+.demo__sub--title {
+  position: absolute;
+  width: 227px;
+  height: 24px;
+  top: 190px;
+  left: 32px;
+  font-weight: 400;
+  size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.btn__selection--race {
+  top: 304px;
+  background-color: #d9d9d9;
+}
+
+.btn__selection--age {
+  top: 416px;
+  background-color: #d9d9d9;
+}
+
+.btn__selection--sex {
+  top: 528px;
+  background-color: #d9d9d9;
+}
+
+.btn__selection--race,
+.btn__selection--age,
+.btn__selection--sex {
+  position: absolute;
+  width: 208px;
+  height: 104px;
+  left: 32px;
+  cursor: pointer;
+  border: none;
+  border-top: #1a1b1c 2px solid;
+}
+
+.btn__selection--race:hover,
+.btn__selection--age:hover,
+.btn__selection--sex:hover {
+  background-color: #bfbfbf;
+  border-top: #d9d9d9 2px solid;
+}
+
+.race__text,
+.age__text,
+.sex__text {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  margin: 0;
+}
+
+.race__value,
+.age__value,
+.sex__value {
+  position: absolute;
+  margin: 0;
+  left: 16px;
+  top: 16px;
+  text-transform: uppercase;
+}
+
+.btn__selection--race.selected,
+.btn__selection--age.selected,
+.btn__selection--sex.selected {
+  background-color: #1a1b1c;
+  color: #fff;
+  border-top: #fff 2px solid;
+}
+
+.btn__selection--race.selected .race__text,
+.btn__selection--race.selected .race__value,
+.btn__selection--age.selected .age__text,
+.btn__selection--age.selected .age__value,
+.btn__selection--sex.selected .sex__text,
+.btn__selection--sex.selected .sex__value {
+  color: #fff;
+}
+
+.list__container {
+  position: absolute;
+  width: 448px;
+  height: 544px;
+  top: 304px;
+  left: 1440px;
+  border: none;
+  border-top: #1a1b1c 2px solid;
+  background-color: #d9d9d9;
+}
+
+.list__item {
+  width: 448px;
+  height: 48px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This pushes children to left and right */
+  padding: 0 24px; /* Add horizontal padding as needed */
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.list__item:hover {
+  background-color: #bfbfbf;
+}
+
+.race-key {
+  text-align: left;
+}
+
+.race-value {
+  text-align: right;
+}
