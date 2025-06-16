@@ -509,8 +509,8 @@ body {
   border: none;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* This pushes children to left and right */
-  padding: 0 24px; /* Add horizontal padding as needed */
+  justify-content: space-between; 
+  padding: 0 24px; 
   background: transparent;
   font-size: 1rem;
   cursor: pointer;
@@ -527,4 +527,130 @@ body {
 
 .race-value {
   text-align: right;
+}
+
+.percentage__display--container {
+  position: absolute;
+  width: 1168px;
+  height: 544px;
+  top: 304px;
+  left: 256px;
+  border: none;
+  border-top: #1a1b1c 2px solid;
+  background-color: #d9d9d9;
+}
+
+.list__item.selected {
+  background-color: #1a1b1c;
+  color: #fff;
+}
+
+.list__item.selected .race-key,
+.list__item.selected .race-value {
+  color: #fff;
+}
+
+.display__text {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  top: 20px;
+  left: 20px;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: -5%;
+  text-transform: uppercase;
+}
+
+.display__value {
+  position: absolute;
+  width: 70px;
+  height: 52px;
+  top: 322px;
+  left: 946px;
+  font-weight: 600;
+}
+
+.circle__bg {
+  position: absolute;
+  width: 384px;
+  height: 384px;
+  top: 440px;
+  left: 1024px;
+}
+
+.list__row {
+  display: flex;
+  padding: 16px 0;
+}
+
+.list__selection {
+  position: relative;
+  width: 41px;
+  height: 24px;
+  top: 10px;
+  left: 10px;
+  font-weight: 500;
+  size: 16px;
+  line-height: 24px;
+  letter-spacing: -2%;
+  color: #1a1b1c;
+  text-transform: uppercase;
+}
+
+.list__confidence {
+  position: relative;
+  width: 126px;
+  height: 24px;
+  top: 10px;
+  left: 270px;
+  font-weight: 500;
+  size: 16px;
+  line-height: 24px;
+  letter-spacing: -2%;
+  color: #1a1b1c;
+  text-transform: uppercase;
+}
+
+.warning__text {
+  position: absolute;
+  width: 340px;
+  height: 24px;
+  top: 894px;
+  left: 821px;
+  font-weight: 400;
+  size: 16px;
+  line-height: 24px;
+  letter-spacing: -2%;
+  color: #a0a4ab;
+}
+
+.reset__btn {
+  position: absolute;
+  width: 73px;
+  height: 35px;
+  top: 889px;
+  left: 1703px;
+  border: 1px solid #1a1b1c;
+  padding: 9px 16px 10px 16px;
+  gap: 8px;
+  color: #1a1b1c;
+  cursor: pointer;
+  background-color: #fcfcfc;
+  font-weight: 600;
+}
+
+.confirm__btn {
+  position: absolute;
+  width: 95px;
+  height: 35px;
+  top: 889px;
+  left: 1793px;
+  border: 1px solid #1a1b1c;
+  padding: 9px 16px 10px 16px;
+  cursor: pointer;
+  color: #fcfcfc;
+  background-color: #1a1b1c;
+  font-weight: 600;
 }
