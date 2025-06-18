@@ -42,44 +42,50 @@ function Test() {
   return (
     <div>
         <Header />
-      <h2 className="sub__title">TO START ANALYSIS</h2>
-      <Rombuses className='rombuses' />
-      <p className="type__text">CLICK TO TYPE</p>
-      {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
-      {step === 1 && (
-        <input 
-          type="text" 
-          className='input__name' 
-          placeholder='Introduce Yourself'
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          autoFocus
-        />
-      )}
-      {step === 2 && (
-        <input 
-          type="text" 
-          className='input__name' 
-          placeholder='your location'
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          autoFocus
-        />
-      )}
+        <h2 className="sub__title">TO START ANALYSIS</h2>
+        <div className="Analysis__input--container">
+          <div className="rombuses-wrapper">
+            <Rombuses className="rombuses" />
+            <div className="input-content">
+              <p className="type__text">CLICK TO TYPE</p>
+              {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+              {step === 1 && (
+                <input 
+                  type="text" 
+                  className='input__name' 
+                  placeholder='Introduce Yourself'
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  autoFocus
+                />
+              )}
+              {step === 2 && (
+                <input 
+                  type="text" 
+                  className='input__name' 
+                  placeholder='Where are you from?'
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  autoFocus
+                />
+              )}
+            </div>
+          </div>
+        </div>
+          {step === 3 && (
+            <button
+              className="proceed__btn"
+              onClick={() => navigate("/choice")}
+              style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
+            >
+              <Proceed />
+            </button>
+          )}
       <button className='back__btn' onClick={() => navigate("/")}>
         <BackBtn />
       </button>
-      {step === 3 && (
-        <button
-          className="proceed__btn"
-          onClick={() => navigate("/choice")}
-          style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
-        >
-          <Proceed />
-        </button>
-      )}
       
     </div>
   )

@@ -73,96 +73,102 @@ function Demographics() {
       <button className='back__btn' onClick={() => navigate(-1)}>
         <BackBtn />
       </button>
-      <div className="btn__selection--container">
-        <button
-          className={`btn__selection--race${selected === "race" ? " selected" : ""}`}
-          onClick={() => {
-            setSelected("race");
-            setSelectedRace(getTopKey(data?.race));
-          }}
-        >
-          <h3 className="race__text">RACE</h3>
-          <h3 className="race__value">{race}</h3>
-        </button>
-        <button
-          className={`btn__selection--age${selected === "age" ? " selected" : ""}`}
-          onClick={() => {
-            setSelected("age");
-            setSelectedAge(getTopKey(data?.age));
-          }}
-        >
-          <h3 className="age__text">AGE</h3>
-          <h3 className="age__value">{age}</h3>
-        </button>
-        <button
-          className={`btn__selection--sex${selected === "sex" ? " selected" : ""}`}
-          onClick={() => {
-            setSelected("sex");
-            setSelectedSex(getTopKey(data?.gender));
-          }}
-        >
-          <h3 className="sex__text">SEX</h3>
-          <h3 className="sex__value">{gender}</h3>
-        </button>
-      </div>
-      <div className="list__container">
-        <div className="list__row">
-          <p className="list__selection">
-            {selected === "race" && "RACE"}
-            {selected === "age" && "AGE"}
-            {selected === "sex" && "SEX"}
-          </p>
-          <p className="list__confidence">A.I. Confidence</p>
+      <div className="demographics__content">
+        <div className="btn__selection--container">
+          <button
+            className={`btn__selection--race${selected === "race" ? " selected" : ""}`}
+            onClick={() => {
+              setSelected("race");
+              setSelectedRace(getTopKey(data?.race));
+            }}
+          >
+            <h3 className="race__text">RACE</h3>
+            <h3 className="race__value">{race}</h3>
+          </button>
+          <button
+            className={`btn__selection--age${selected === "age" ? " selected" : ""}`}
+            onClick={() => {
+              setSelected("age");
+              setSelectedAge(getTopKey(data?.age));
+            }}
+          >
+            <h3 className="age__text">AGE</h3>
+            <h3 className="age__value">{age}</h3>
+          </button>
+          <button
+            className={`btn__selection--sex${selected === "sex" ? " selected" : ""}`}
+            onClick={() => {
+              setSelected("sex");
+              setSelectedSex(getTopKey(data?.gender));
+            }}
+          >
+            <h3 className="sex__text">SEX</h3>
+            <h3 className="sex__value">{gender}</h3>
+          </button>
         </div>
-        {selected === "race" && data?.race && (
-          getSortedEntries(data.race).map(([raceKey, raceValue]) => (
-            <button
-              key={raceKey}
-              className={`list__item${selectedRace === raceKey ? " selected" : ""}`}
-              onClick={() => setSelectedRace(raceKey)}
-            >
-              <span className="race-key">{raceKey}</span>
-              <span className="race-value">{Math.round(raceValue * 100)}%</span>
-            </button>
-          ))
-        )}
-        {selected === "age" && data?.age && (
-          getSortedEntries(data.age).map(([ageKey, ageValue]) => (
-            <button
-              key={ageKey}
-              className={`list__item${selectedAge === ageKey ? " selected" : ""}`}
-              onClick={() => setSelectedAge(ageKey)}
-            >
-              <span className="race-key">{ageKey}</span>
-              <span className="race-value">{Math.round(ageValue * 100)}%</span>
-            </button>
-          ))
-        )}
-        {selected === "sex" && data?.gender && (
-          getSortedEntries(data.gender).map(([sexKey, sexValue]) => (
-            <button
-              key={sexKey}
-              className={`list__item${selectedSex === sexKey ? " selected" : ""}`}
-              onClick={() => setSelectedSex(sexKey)}
-            >
-              <span className="race-key">{sexKey}</span>
-              <span className="race-value">{Math.round(sexValue * 100)}%</span>
-            </button>
-          ))
-        )}
+        <div className="percentage__display--container">
+          <span className="display__text">{getSelectedValue()}</span>
+          <div className="display__bottom-row">
+            <div className="circle__bg-wrapper">
+              <span className="display__value">{getSelectedPercentage()}</span>
+              <CircleG className="circle__bg" />
+            </div>
+          </div>
+        </div>
+        <div className="list__container">
+          <div className="list__row">
+            <p className="list__selection">
+              {selected === "race" && "RACE"}
+              {selected === "age" && "AGE"}
+              {selected === "sex" && "SEX"}
+            </p>
+            <p className="list__confidence">A.I. Confidence</p>
+          </div>
+          {selected === "race" && data?.race && (
+            getSortedEntries(data.race).map(([raceKey, raceValue]) => (
+              <button
+                key={raceKey}
+                className={`list__item${selectedRace === raceKey ? " selected" : ""}`}
+                onClick={() => setSelectedRace(raceKey)}
+              >
+                <span className="race-key">{raceKey}</span>
+                <span className="race-value">{Math.round(raceValue * 100)}%</span>
+              </button>
+            ))
+          )}
+          {selected === "age" && data?.age && (
+            getSortedEntries(data.age).map(([ageKey, ageValue]) => (
+              <button
+                key={ageKey}
+                className={`list__item${selectedAge === ageKey ? " selected" : ""}`}
+                onClick={() => setSelectedAge(ageKey)}
+              >
+                <span className="race-key">{ageKey}</span>
+                <span className="race-value">{Math.round(ageValue * 100)}%</span>
+              </button>
+            ))
+          )}
+          {selected === "sex" && data?.gender && (
+            getSortedEntries(data.gender).map(([sexKey, sexValue]) => (
+              <button
+                key={sexKey}
+                className={`list__item${selectedSex === sexKey ? " selected" : ""}`}
+                onClick={() => setSelectedSex(sexKey)}
+              >
+                <span className="race-key">{sexKey}</span>
+                <span className="race-value">{Math.round(sexValue * 100)}%</span>
+              </button>
+            ))
+          )}
+        </div>
       </div>
-      <div className="percentage__display--container">
-        <h2 className="display__text">
-          {getSelectedValue()}
-        </h2>
-        <h2 className="display__value">{getSelectedPercentage()}</h2>
+      <p className="warning__text">
+        If A.I. estimate is wrong, select the correct one.
+      </p>
+      <div className="next__btn--container">
+      <button className="reset__btn">RESET</button>
+      <button className="confirm__btn">CONFIRM</button>
       </div>
-        <CircleG className='circle__bg'/>
-        <p className="warning__text">
-            If A.I. estimate is wrong, select the correct one.
-        </p>
-        <button className="reset__btn">RESET</button>
-        <button className="confirm__btn">CONFIRM</button>
     </div>
   )
 }
