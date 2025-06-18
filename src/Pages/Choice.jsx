@@ -64,7 +64,7 @@ function Choice() {
         <p className="loading__text">PREPARING YOUR ANALYSIS ...</p>
         </div>
       ) : (
-        <>
+        <div className="choice__btns-container">
           <button className='gallery__btn' onClick={handleGalleryClick}>
             <Gallery />
           </button>
@@ -86,7 +86,7 @@ function Choice() {
             capture="user" 
             onChange={handleFileChange}
           />
-        </>
+        </div>
       )}
     </div>
   )
