@@ -59,9 +59,9 @@ function Choice() {
         <BackBtn />
       </button>
       {loading ? (
-        <div>
-        <Preparing className='loading__choice'/>
-        <p className="loading__text">PREPARING YOUR ANALYSIS ...</p>
+        <div className="loading__container">
+          <Preparing className="loading__choice" />
+          <p className="loading__text">PREPARING YOUR ANALYSIS ...</p>
         </div>
       ) : (
         <div className="choice__btns-container">

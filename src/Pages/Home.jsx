@@ -26,35 +26,37 @@ function Home() {
             <h1 className="sub__heading">skincare</h1>
           </div>
         </div>
-      </div>
-      <div
-        className={`left__container ${
-          hovered === "right" ? "fade-out" : ""
-        }`}
-      >
-        <div className="diamond diamond--left"></div>
-        <button
-          className="diamond-btn btn--left"
-          onMouseEnter={() => setHovered("left")}
-          onMouseLeave={() => setHovered(null)}
-        >
-          <DiscoverAIcon />
-        </button>
-      </div>
-      <div
-        className={`right__container ${
-          hovered === "left" ? "fade-out" : ""
-        }`}
-      >
-        <div className="diamond diamond--right"></div>
-        <button
-          className="diamond-btn btn--right"
-          onMouseEnter={() => setHovered("right")}
-          onMouseLeave={() => setHovered(null)}
-          onClick={() => navigate("/test")} 
-        >
-          <TakeTestIcon />
-        </button>
+        <div className="home-btns-row">
+          <div
+            className={`left__container ${
+              hovered === "right" ? "fade-out" : ""
+            }`}
+          >
+            <div className="diamond diamond--left"></div>
+            <button
+              className="diamond-btn btn--left"
+              onMouseEnter={() => setHovered("left")}
+              onMouseLeave={() => setHovered(null)}
+            >
+              <DiscoverAIcon />
+            </button>
+          </div>
+          <div
+            className={`right__container ${
+              hovered === "left" ? "fade-out" : ""
+            }`}
+          >
+            <div className="diamond diamond--right"></div>
+            <button
+              className="diamond-btn btn--right"
+              onMouseEnter={() => setHovered("right")}
+              onMouseLeave={() => setHovered(null)}
+              onClick={() => navigate("/test")}
+            >
+              <TakeTestIcon />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

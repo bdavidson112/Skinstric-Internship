@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from "react-router";
 import Header from '../Components/Header'
 import { ReactComponent as CircleG } from "../SVG/Ellipse 172.svg";
@@ -63,6 +63,13 @@ function Demographics() {
     const sorted = getSortedEntries(obj);
     return sorted.length > 0 ? sorted[0][0] : "";
   };
+
+  useEffect(() => {
+    if (data?.race) {
+      setSelected("race");
+      setSelectedRace(getLargestKey(data.race));
+    }
+  }, [data]);
 
   return (
     <div>
@@ -166,7 +173,7 @@ function Demographics() {
         If A.I. estimate is wrong, select the correct one.
       </p>
       <div className="next__btn--container">
-      <button className="reset__btn">RESET</button>
+      <button className="reset__btn" onClick={() => window.location.reload()}>RESET</button>
       <button className="confirm__btn">CONFIRM</button>
       </div>
     </div>
